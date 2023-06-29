@@ -9,7 +9,6 @@ export class MoviesController {
   @Get()
   async getHello(): Promise<Movie[]> {
     const movies = await this.movieService.findAll();
-    console.log('asdad', movies);
     return movies;
   }
 }

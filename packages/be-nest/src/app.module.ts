@@ -5,6 +5,10 @@ import { AppService } from './app.service';
 import { Movie } from './movies/movie.entity';
 import { MoviesModule } from './movies/movies.module';
 import { MovieHttpModule } from './movies/movies-http.module';
+import { GenreHttpModule } from './genre/genre-http.module';
+import { PersonHttpModule } from './person/person-http.module';
+import { Genre } from './genre/genre.entity';
+import { Person } from './person/person.entity';
 
 @Module({
   imports: [
@@ -15,9 +19,11 @@ import { MovieHttpModule } from './movies/movies-http.module';
       username: 'rejin',
       password: 'p@ssw0rd',
       database: 'movies',
-      entities: [Movie],
+      entities: [Movie, Genre, Person],
       synchronize: true,
     }),
+    GenreHttpModule,
+    PersonHttpModule,
     MovieHttpModule,
   ],
   controllers: [AppController],
