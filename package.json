@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "run-be": "nx start:debug be-nest"
   },
   "private": true,
-  "dependencies": {
-  },
   "devDependencies": {
+    "eslint-plugin-prettier": "^4.2.1",
     "nx": "16.4.0"
   }
 }

@@ -14,9 +14,22 @@ export class GenresService {
     return this.genresRepository.find();
   }
 
-  findOne(id: number): Promise<Genre | null> {
-    return this.genresRepository.findOneBy({ id });
+  findOne(genre: string): Promise<Genre | null> {
+    return this.genresRepository.findOneBy({ name: genre });
   }
+
+  getOrCreateGenre = async (genre: string): Promise<Genre> => {
+    const existingGenre = await this.findOne(genre);
+    if (existingGenre) {
+      return existingGenre;
+    }
+    const createdGenre = await this.genresRepository.save(
+      this.genresRepository.create({
+        name: genre,
+      }),
+    );
+    return createdGenre;
+  };
 
   async remove(id: number): Promise<void> {
     await this.genresRepository.delete(id);

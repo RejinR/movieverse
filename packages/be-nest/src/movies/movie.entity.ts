@@ -1,3 +1,4 @@
+import { Certificate } from '@interfaces/movies.interface';
 import { BaseCreateable } from 'src/base_entity/base-creatable';
 import { Genre } from 'src/genre/genre.entity';
 import { Person } from 'src/person/person.entity';
@@ -10,21 +11,6 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
-export enum Certificate {
-  A = 'A',
-  UA = 'UA',
-  U = 'U',
-  PG_13 = 'PG-13',
-  R = 'R',
-  G = 'G',
-  TV_14 = 'TV-14',
-  PASSED = 'PASSED',
-  PG = 'PG',
-  GP = 'GP',
-  TV_PG = 'TV-PG',
-  MA_16 = '16',
-}
 
 @Entity({ name: 'movies' })
 export class Movie extends BaseCreateable {
@@ -40,7 +26,7 @@ export class Movie extends BaseCreateable {
   @Column()
   duration: number; // in minutes
 
-  @Column()
+  @Column('decimal', { precision: 6, scale: 2 })
   rating: number; // in minutes
 
   @Column({ name: 'number_of_votes' })
