@@ -49,7 +49,7 @@ export class Movie extends BaseCreateable {
   })
   certificate: string;
 
-  @ManyToMany(() => Genre)
+  @ManyToMany(() => Genre, { eager: true })
   @JoinTable({
     name: 'movie_genre',
     joinColumn: {
@@ -63,11 +63,11 @@ export class Movie extends BaseCreateable {
   })
   genres: Genre[];
 
-  @ManyToMany(() => Person)
+  @ManyToMany(() => Person, { eager: true })
   @JoinTable({ name: 'movie_star' })
   stars: Person[];
 
-  @ManyToOne(() => Person)
+  @ManyToOne(() => Person, { eager: true })
   @JoinColumn({
     name: 'director_id',
     referencedColumnName: 'id',

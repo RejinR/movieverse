@@ -118,7 +118,7 @@ export class MoviesService {
     } catch (e) {
       console.log(red(`an error occured inserting movie: ${e.toString()}`));
       console.error(movie);
-      throw e;
+      throw new Error('Unknown error occured');
     }
     console.log(green(`inserted new movie: ${movieTitle}`));
   };
