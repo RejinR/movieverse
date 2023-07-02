@@ -1,7 +1,7 @@
+import { BaseCreateable } from '@entity/base-creatable';
+import { Genre } from '@entity/genre.entity';
+import { Person } from '@entity/person.entity';
 import { Certificate } from '@interfaces/movies.interface';
-import { BaseCreateable } from 'src/base_entity/base-creatable';
-import { Genre } from 'src/genre/genre.entity';
-import { Person } from 'src/person/person.entity';
 import {
   Column,
   Entity,

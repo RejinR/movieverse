@@ -1,3 +1,4 @@
+import { Movie } from '@entity/movie.entity';
 import {
   Controller,
   Get,
@@ -7,8 +8,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Movie } from './movie.entity';
-import { MoviesService } from './movies.service';
+import { MoviesService } from '@services/movies.service';
 
 @Controller('movies')
 export class MoviesController {

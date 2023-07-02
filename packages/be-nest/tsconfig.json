@@ -20,7 +20,11 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["../types/src/*"]
+      "@interfaces/*": ["../types/src/*"],
+      "@services/*": ["./src/services/*"],
+      "@entity/*": ["./src/entity/*"],
+      "@controller/*": ["./src/controller/*"],
+      "@modules/*": ["./src/modules/*"],
     }
   }
 }

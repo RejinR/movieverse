@@ -1,16 +1,16 @@
+import { Genre } from '@entity/genre.entity';
+import { Movie } from '@entity/movie.entity';
+import { Person } from '@entity/person.entity';
+import { OmdbResponse } from '@interfaces/omdb.interface';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { parseCSV } from '@utils/csv-parser.util';
 import axios from 'axios';
 import { blue, green, red, yellow } from 'chalk';
-import { GenresService } from 'src/genre/genre.service';
-import { PersonService } from 'src/person/person.service';
 import { Readable } from 'stream';
 import { Repository } from 'typeorm';
-import { Genre } from '../genre/genre.entity';
-import { Person } from '../person/person.entity';
-import { Movie } from './movie.entity';
-import { OmdbResponse } from '@interfaces/omdb.interface';
+import { GenresService } from './genre.service';
+import { PersonService } from './person.service';
 
 @Injectable()
 export class MoviesService {

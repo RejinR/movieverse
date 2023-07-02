@@ -1,14 +1,13 @@
+import { Genre } from '@entity/genre.entity';
+import { Movie } from '@entity/movie.entity';
+import { Person } from '@entity/person.entity';
+import { GenreHttpModule } from '@modules/genre.module';
+import { MovieHttpModule } from '@modules/movies.module';
+import { PersonHttpModule } from '@modules/person.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Movie } from './movies/movie.entity';
-import { MoviesModule } from './movies/movies.module';
-import { MovieHttpModule } from './movies/movies-http.module';
-import { GenreHttpModule } from './genre/genre-http.module';
-import { PersonHttpModule } from './person/person-http.module';
-import { Genre } from './genre/genre.entity';
-import { Person } from './person/person.entity';
 
 @Module({
   imports: [
