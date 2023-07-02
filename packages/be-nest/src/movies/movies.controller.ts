@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  Param,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -16,6 +17,14 @@ export class MoviesController {
   @Get()
   async getMovies(): Promise<Movie[]> {
     const movies = await this.movieService.findAll();
+    return movies;
+  }
+
+  @Get(':id')
+  async getMovie(@Param() params: any): Promise<Movie> {
+    console.log('asd', params.id);
+    const movies = await this.movieService.findOne(params.id);
+    const genres = await movies.genres;
     return movies;
   }
 
