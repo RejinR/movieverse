@@ -1,4 +1,4 @@
-import { BaseCreateable } from '../base_entity/base-creatable';
+import { BaseCreateable } from '@entity/base-creatable';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

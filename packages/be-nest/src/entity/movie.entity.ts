@@ -1,7 +1,7 @@
+import { BaseCreateable } from '@entity/base-creatable';
+import { Genre } from '@entity/genre.entity';
+import { Person } from '@entity/person.entity';
 import { Certificate } from '@interfaces/movies.interface';
-import { BaseCreateable } from 'src/base_entity/base-creatable';
-import { Genre } from 'src/genre/genre.entity';
-import { Person } from 'src/person/person.entity';
 import {
   Column,
   Entity,
@@ -49,7 +49,7 @@ export class Movie extends BaseCreateable {
   })
   certificate: string;
 
-  @ManyToMany(() => Genre, { eager: true })
+  @ManyToMany(() => Genre, { eager: false })
   @JoinTable({
     name: 'movie_genre',
     joinColumn: {
@@ -61,7 +61,7 @@ export class Movie extends BaseCreateable {
       referencedColumnName: 'id',
     },
   })
-  genres: Genre[];
+  genres: Promise<Genre[]>;
 
   @ManyToMany(() => Person, { eager: true })
   @JoinTable({ name: 'movie_star' })

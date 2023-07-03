@@ -1,6 +1,6 @@
+import { Genre } from '@entity/genre.entity';
 import { Controller, Get } from '@nestjs/common';
-import { GenresService } from './genre.service';
-import { Genre } from './genre.entity';
+import { GenresService } from '@services/genre.service';
 
 @Controller('genres')
 export class GenresController {

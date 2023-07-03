@@ -1,9 +1,9 @@
 {
-  "name": "movie-database",
-  "version": "0.0.0",
+  "name": "@movieverse/monorepo",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "run-be": "nx start:debug be-nest"
+    "run-be": "nx start:debug @movieverse/be-nest"
   },
   "private": true,
   "devDependencies": {
