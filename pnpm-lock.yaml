@@ -50,6 +50,9 @@ importers:
         specifier: ^0.3.17
         version: 0.3.17(pg@8.11.1)(ts-node@10.9.1)
     devDependencies:
+      '@movieverse/types':
+        specifier: '*'
+        version: link:../types
       '@nestjs/cli':
         specifier: ^10.0.0
         version: 10.0.0
