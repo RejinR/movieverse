@@ -1,4 +1,5 @@
 import { Movie } from '@entity/movie.entity';
+import { MovieDto } from '@interfaces/movies.interface';
 import {
   Controller,
   Get,
@@ -9,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { MoviesService } from '@services/movies.service';
+import { transformMovieDtoFrom } from '@transformers/movies.transformer';
 
 @Controller('movies')
 export class MoviesController {
@@ -21,11 +23,9 @@ export class MoviesController {
   }
 
   @Get(':id')
-  async getMovie(@Param() params: any): Promise<Movie> {
-    console.log('asd', params.id);
+  async getMovie(@Param() params: any): Promise<MovieDto> {
     const movies = await this.movieService.findOne(params.id);
-    const genres = await movies.genres;
-    return movies;
+    return await transformMovieDtoFrom(movies);
   }
 
   @Post('/seed-movies')

@@ -23,6 +23,7 @@
       "@interfaces/*": ["../types/src/*"],
       "@services/*": ["./src/services/*"],
       "@entity/*": ["./src/entity/*"],
+      "@transformers/*": ["./src/transformer/*"],
       "@controller/*": ["./src/controller/*"],
       "@modules/*": ["./src/modules/*"],
     }

@@ -1,3 +1,6 @@
+import { GenreDto } from "./genre.interface";
+import { PersonDto } from "./person.interface";
+
 export enum Certificate {
   A = 'A',
   UA = 'UA',
@@ -17,4 +20,21 @@ export enum Certificate {
   UNRATED = 'Unrated',
   NOT_RATED = 'Not Rated',
   X = 'X',
+}
+
+export interface MovieDto {
+  id: number;
+  title: string;
+  releaseYear: number;
+  duration: number; // in minutes
+  rating: number; // in minutes
+  numberOfVotes: number;
+  gross: number;
+  overview: string;
+  link: string;
+  certificate: string;
+  genres: GenreDto[];
+  stars: PersonDto[];
+  director: PersonDto;
+
 }

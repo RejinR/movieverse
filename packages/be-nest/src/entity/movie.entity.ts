@@ -63,11 +63,11 @@ export class Movie extends BaseCreateable {
   })
   genres: Promise<Genre[]>;
 
-  @ManyToMany(() => Person, { eager: true })
+  @ManyToMany(() => Person, { eager: false })
   @JoinTable({ name: 'movie_star' })
-  stars: Person[];
+  stars: Promise<Person[]>;
 
-  @ManyToOne(() => Person, { eager: true })
+  @ManyToOne(() => Person)
   @JoinColumn({
     name: 'director_id',
     referencedColumnName: 'id',

@@ -110,7 +110,7 @@ export class MoviesService {
       link: omdbResp.Poster,
       certificate: omdbResp.Rated,
       genres: Promise.resolve([genres]),
-      stars,
+      stars: Promise.resolve([stars]),
       director,
     });
     try {
