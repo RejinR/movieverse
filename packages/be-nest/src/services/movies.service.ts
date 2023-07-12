@@ -8,9 +8,11 @@ import { parseCSV } from '@utils/csv-parser.util';
 import axios from 'axios';
 import { blue, green, red, yellow } from 'chalk';
 import { Readable } from 'stream';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { GenresService } from './genre.service';
 import { PersonService } from './person.service';
+import { MovieDto } from '@interfaces/movies.interface';
+import { transformMovieDtoFrom } from '@transformers/movies.transformer';
 
 @Injectable()
 export class MoviesService {
@@ -32,6 +34,17 @@ export class MoviesService {
   findByTitle(title: string): Promise<Movie | null> {
     return this.moviesRepository.findOneBy({ title });
   }
+
+  searchByTitle = async (title: string): Promise<MovieDto[]> => {
+    const movies = await this.moviesRepository.find({
+      where: { title: Like(`%${title}%`) },
+    });
+    let movieDto: MovieDto[] = [];
+    for (let i = 0; i < movies.length; i += 1) {
+      movieDto = movieDto.concat(await transformMovieDtoFrom(movies[i]));
+    }
+    return movieDto;
+  };
 
   async remove(id: number): Promise<void> {
     await this.moviesRepository.delete(id);

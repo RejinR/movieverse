@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   Post,
+  Query,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -22,10 +23,16 @@ export class MoviesController {
     return movies;
   }
 
-  @Get(':id')
+  @Get('/byId/:id')
   async getMovie(@Param() params: any): Promise<MovieDto> {
     const movies = await this.movieService.findOne(params.id);
     return await transformMovieDtoFrom(movies);
+  }
+
+  @Get('/searchMovies')
+  async searchMovies(@Query('titles') title: string): Promise<MovieDto[]> {
+    console.log('asdasj', title);
+    return await this.movieService.searchByTitle(title);
   }
 
   @Post('/seed-movies')
