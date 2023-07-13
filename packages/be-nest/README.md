@@ -30,6 +30,11 @@ $ pnpm start:dev
 $ pnpm start:prod
 ```
 
+## API Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3050911-7ca489a8-a351-47f1-adef-516513f48ec6?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D3050911-7ca489a8-a351-47f1-adef-516513f48ec6%26entityType%3Dcollection%26workspaceId%3D091961bd-0107-43ef-9e2c-e8cefd44a02e#?env%5BLocal%20Dev%20Environment%5D=W3sia2V5IjoiTVZfQkFTRV9VUkwiLCJ2YWx1ZSI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsImVuYWJsZWQiOnRydWUsInNlc3Npb25WYWx1ZSI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsInNlc3Npb25JbmRleCI6MH1d)
+
+https://www.postman.com/rejin/workspace/movieverse/collection/3050911-7ca489a8-a351-47f1-adef-516513f48ec6
+
 ## Test
 
 ```bash
