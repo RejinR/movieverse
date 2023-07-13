@@ -1,13 +1,23 @@
 {
-  "name": "movie-database",
-  "version": "0.0.0",
+  "name": "@movieverse/monorepo",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
+    "run:nest-be": "nx start:dev @movieverse/be-nest",
+    "debug:nest-be": "nx start:debug @movieverse/be-nest",
+    "build:nest-be": "nx build @movieverse/be-nest"
   },
   "private": true,
   "dependencies": {
+    "axios": "^1.4.0"
   },
   "devDependencies": {
-    "nx": "16.4.0"
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nx": "16.4.0",
+    "prettier": "^2.8.8",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
   }
 }
