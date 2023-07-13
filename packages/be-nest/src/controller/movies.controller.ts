@@ -18,14 +18,17 @@ export class MoviesController {
   constructor(private readonly movieService: MoviesService) {}
 
   @Get()
-  async getMovies(): Promise<Movie[]> {
-    const movies = await this.movieService.findAll();
+  async getMovies(
+    @Query('page') page = 1,
+    @Query('size') size = 10,
+  ): Promise<Movie[]> {
+    const movies = await this.movieService.findAll(page, size);
     return movies;
   }
 
-  @Get('/byId/:id')
+  @Get('/find/:uuid')
   async getMovie(@Param() params: any): Promise<MovieDto> {
-    const movies = await this.movieService.findOne(params.id);
+    const movies = await this.movieService.findOne(params.uuid);
     return await transformMovieDtoFrom(movies);
   }
 

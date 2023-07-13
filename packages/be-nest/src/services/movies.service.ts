@@ -23,12 +23,12 @@ export class MoviesService {
     private personService: PersonService,
   ) {}
 
-  findAll(): Promise<Movie[]> {
-    return this.moviesRepository.find();
+  findAll(page: number, size: number): Promise<Movie[]> {
+    return this.moviesRepository.find({ take: size, skip: (page - 1) * size });
   }
 
-  findOne(id: number): Promise<Movie | null> {
-    return this.moviesRepository.findOneBy({ id });
+  findOne(uuid: string): Promise<Movie | null> {
+    return this.moviesRepository.findOneBy({ uuid });
   }
 
   findByTitle(title: string): Promise<Movie | null> {
