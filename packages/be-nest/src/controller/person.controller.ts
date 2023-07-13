@@ -7,8 +7,8 @@ export class PersonController {
   constructor(private readonly personService: PersonService) {}
 
   @Get()
-  async getHello(): Promise<Person[]> {
-    const movies = await this.personService.findAll();
-    return movies;
+  async getAllPersons(): Promise<Person[]> {
+    const persons = await this.personService.findAll();
+    return persons;
   }
 }

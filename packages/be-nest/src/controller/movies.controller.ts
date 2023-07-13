@@ -21,8 +21,9 @@ export class MoviesController {
   async getMovies(
     @Query('page') page = 1,
     @Query('size') size = 10,
+    @Query('search') search = '',
   ): Promise<Movie[]> {
-    const movies = await this.movieService.findAll(page, size);
+    const movies = await this.movieService.findAll(page, size, search);
     return movies;
   }
 
@@ -30,12 +31,6 @@ export class MoviesController {
   async getMovie(@Param() params: any): Promise<MovieDto> {
     const movies = await this.movieService.findOne(params.uuid);
     return await transformMovieDtoFrom(movies);
-  }
-
-  @Get('/searchMovies')
-  async searchMovies(@Query('titles') title: string): Promise<MovieDto[]> {
-    console.log('asdasj', title);
-    return await this.movieService.searchByTitle(title);
   }
 
   @Post('/seed-movies')

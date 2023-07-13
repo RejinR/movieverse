@@ -7,8 +7,8 @@ export class GenresController {
   constructor(private readonly genreService: GenresService) {}
 
   @Get()
-  async getHello(): Promise<Genre[]> {
-    const movies = await this.genreService.findAll();
-    return movies;
+  async getAllGenres(): Promise<Genre[]> {
+    const genres = await this.genreService.findAll();
+    return genres;
   }
 }
