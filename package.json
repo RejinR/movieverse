@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "run-be": "nx start:debug @movieverse/be-nest"
+    "run:nest-be": "nx start:dev @movieverse/be-nest",
+    "debug:nest-be": "nx start:debug @movieverse/be-nest",
+    "build:nest-be": "nx build @movieverse/be-nest"
   },
   "private": true,
   "devDependencies": {
